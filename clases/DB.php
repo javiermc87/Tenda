@@ -20,7 +20,7 @@ class DB {
             $conexion = new PDO($dsn, $usuario, $pass, $opc);
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $ex) {
-            die('Abortamos la aplicación por fallo conectando con la BD' . $ex->getMessage());
+            die('Abortamos la aplicación por fallo al conectar con la BD' . $ex->getMessage());
         }
         self::$conexion = $conexion;
     }
@@ -72,11 +72,20 @@ FIN;
         }
         return false;
     }
-
+//este metodo nos devuelve un array con objetos de cada producto. 
     public static function obtieneProductos() {
-        
-    }
+        $sql = "SELECT cod, nombre_corto, nombre, PVP FROM producto;";
+        $resultado = self::ejecutaConsulta($sql);
+        $productos = array();
 
+        if ($resultado) {
+            // Añadimos un elemento por cada producto obtenido
+            while ($row = $resultado->fetch()) {
+                $productos[] = new Producto($row);
+            }
+        }
+        return $productos; 
+    }
 }
 
 //End de la clase DB.php

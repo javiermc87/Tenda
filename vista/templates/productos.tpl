@@ -2,14 +2,21 @@
 {*Platilla para visualizar los productos, se invoca desde productos.php*}
 <html>
     <head>
-        <title>práctica de tienda página de productos </title>
+        <title>Productos </title>
         <meta charset="UTF-8">
     </head>
     <body>
        {*primero solo visualizaremos que el usuario está conectado*}
-       <h1>Bienvenido a esta página {$usuario}</h1>
+       <h1>Bienvenido a esta página {$nombre}</h1>
        <hr/>
-       <h3>En breve visualizará una lista de productos para hacer su compra</h3>
- 
+       <h3>Lista de Productos</h3>
+       <form action='producto.php' method='POST'>
+        {*Mostramos el listado de los productos*}
+                    {$listado}
+       </form>
+       <hr />
+        <form action='logoff.php' method='POST'>
+       <input type='submit' name='desconectar' value='Desconectar usuario {$nombre}' />
+        </form>
     </body>
 </html>
