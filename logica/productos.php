@@ -18,12 +18,15 @@ if (isset($_SESSION['nombre'])) {
 
 //recorremos la lista y vamos guardando el contenido en variables para dar formato a la lista:
     foreach ($lista_productos as $objetoProducto) {
-        $pvp = $objetoProducto->getPVP();
-        $cod = $objetoProducto->getcodigo();
-        $nc = $objetoProducto->getnombrecorto();
-//damos formato
-        $listado .= "<input type='submit' value='Añadir' name='anadir'>"
-                . "  $nc: $pvp: $cod <br>";
+        $precio = $objetoProducto->getPVP();
+        $codigo = $objetoProducto->getcodigo();
+        $nombre_corto = $objetoProducto->getnombrecorto();
+//damos formato y guardamos el codigo en un hidden. (un form para cada producto y boton.
+        $listado  .= "<form action='productos.php' method='POST'>"
+                . "<input type='submit' value='añadir' name='submit'>"
+                . " $nombre_corto | $precio <br>"
+                . "<input type='hidden' value='$codigo' name='cod'>"
+                . "</form>";
 //pasamos los valores con formato a Profuctos.tpl con la variable $listado.
         $smarty->assign("listado", $listado);
     }
