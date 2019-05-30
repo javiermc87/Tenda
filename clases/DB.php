@@ -72,6 +72,7 @@ FIN;
         }
         return false;
     }
+
 //este metodo nos devuelve un array con objetos de cada producto. 
     public static function obtieneProductos() {
         $sql = "SELECT cod, nombre_corto, nombre, PVP FROM producto;";
@@ -84,8 +85,27 @@ FIN;
                 $productos[] = new Producto($row);
             }
         }
-        return $productos; 
+        return $productos;
     }
+
+// nos devuelve un Producto pasando como parametro un codigo:  
+    public static function obtieneProducto($codigo) {
+
+        $valores = array('cod' => $codigo);
+        $sql = <<<FIN
+        SELECT cod, nombre_corto, nombre, PVP
+        FROM producto 
+        WHERE cod = :cod
+FIN;
+        $resultado = self::ejecutaConsulta($sql, $valores);
+        $producto = null;
+        if (isset($resultado)) {
+            $row = $resultado->fetch();
+            $producto = new Producto($row);
+        }
+        return $producto;
+    }
+
 }
 
 //End de la clase DB.php
