@@ -30,6 +30,9 @@
             {/foreach}
         {/if}
         <hr />
+        <form action='productos.php' method='POST'>
+            <input type='submit' name='vaciar' value='vaciar cesta' />
+        </form>
         <form action='logoff.php' method='POST'>
             <input type='submit' name='desconectar' value='Desconectar usuario {$nombre}' />
         </form>

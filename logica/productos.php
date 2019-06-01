@@ -52,6 +52,11 @@ if(isset($_POST['quitar'])){
     $productos=$cesta->getProductos();
     $cesta->guardar_cesta();   
 }
+if(isset($_POST['vaciar'])){
+    $cesta->vaciar_cesta(); 
+    var_dump($cesta);
+}
+
 
 
 $smarty->assign("productos", $productos);
