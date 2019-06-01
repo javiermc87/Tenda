@@ -6,29 +6,32 @@
         <meta charset="UTF-8">
     </head>
     <body>
-       {*primero solo visualizaremos que el usuario está conectado*}
+{*BIENVENIDA AL USUARIO CONECTADo*}
        <h1>Bienvenido a esta página {$nombre}</h1>
        <hr/>
        <h3>Lista de Productos</h3>
       
-        {*Mostramos el listado de los productos*}
+{*Mostramos el listado de los productos*}
                     {$listado}
       
        <hr />
            
-        {*MOSTRAMOS LA LISTA DE PRODUCTOS DE LA CESTA: *}
-        {if (isset($cesta))}
-            <h2>Listado de cesta</h2>
-            {foreach $cesta as $productos=>$unidades}
+{*MOSTRAMOS LA LISTA DE PRODUCTOS DE LA CESTA: *}
+       {if (isset($productos))}           
+            <h2>Lista de productos en la Cesta</h2>
             
-            {$unidades}  {$productos}
-            <br />
+            {foreach $productos as $producto=>$unidades}
+                <form action='productos.php' method='POST'>
+                    {$unidades['unidades']} unidades de:  {$producto}  a: {$unidades['productos']->getPVP()} €
+                    <input type='hidden' value='{$producto}' name='cod'>
+                    <input type='submit' name='quitar' value='quitar' />
+                </form>                   
+               <br />
             {/foreach}
-         {/if}
-
+        {/if}
         <hr />
         <form action='logoff.php' method='POST'>
-       <input type='submit' name='desconectar' value='Desconectar usuario {$nombre}' />
+            <input type='submit' name='desconectar' value='Desconectar usuario {$nombre}' />
         </form>
     </body>
 </html>

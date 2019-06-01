@@ -8,7 +8,7 @@
  */
 class Cesta {
    
-   private $productos = [];
+    private $productos = [];
 
 
     public function __construct()
@@ -45,6 +45,19 @@ class Cesta {
         $_SESSION['cesta'] = serialize($this);
 
     }
+        
+    public function descuentaProducto($cod){
+        if($this->productos[$cod]['unidades']==1){
+            unset($this->productos[$cod]);
+        }else{
+            $this->productos[$cod]['unidades']--;
+        }
+    }
+    
+    function getProductos() {
+        return $this->productos;
+    }
+
 
 
 }
