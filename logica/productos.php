@@ -52,8 +52,10 @@ if(isset($_POST['quitar'])){
     $productos=$cesta->getProductos();
     $cesta->guardar_cesta();   
 }
-if(isset($_POST['vaciar'])){
+if(isset($_POST['Vaciar'])){
     $cesta->vaciar_cesta(); 
+    $cesta->guardar_cesta();
+    unset($cesta);
     var_dump($cesta);
 }
 

@@ -1,26 +1,27 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-01 13:23:32
+/* Smarty version 3.1.33, created on 2019-06-01 14:37:32
   from 'c:\wamp64\www\Tienda\vista\templates\productos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cf27c54915b70_70029552',
+  'unifunc' => 'content_5cf28dac5b4b88_60773895',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '56c5eddb92d4d4288ef37e415b9f5b4753e303c6' => 
     array (
       0 => 'c:\\wamp64\\www\\Tienda\\vista\\templates\\productos.tpl',
-      1 => 1559395401,
+      1 => 1559399847,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:cesta.tpl' => 1,
   ),
 ),false)) {
-function content_5cf27c54915b70_70029552 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cf28dac5b4b88_60773895 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -37,34 +38,8 @@ function content_5cf27c54915b70_70029552 (Smarty_Internal_Template $_smarty_tpl)
 
       
        <hr />
-           
-       <?php if ((isset($_smarty_tpl->tpl_vars['productos']->value))) {?>           
-            <h2>Lista de productos en la Cesta</h2>
-            
-            <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['productos']->value, 'unidades', false, 'producto');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['producto']->value => $_smarty_tpl->tpl_vars['unidades']->value) {
+           <?php $_smarty_tpl->_subTemplateRender('file:cesta.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-                <form action='productos.php' method='POST'>
-                    <?php echo $_smarty_tpl->tpl_vars['unidades']->value['unidades'];?>
- unidades de:  <?php echo $_smarty_tpl->tpl_vars['producto']->value;?>
-  a: <?php echo $_smarty_tpl->tpl_vars['unidades']->value['productos']->getPVP();?>
- €
-                    <input type='hidden' value='<?php echo $_smarty_tpl->tpl_vars['producto']->value;?>
-' name='cod'>
-                    <input type='submit' name='quitar' value='quitar' />
-                </form>                   
-               <br />
-            <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-        <?php }?>
-        <hr />
-        <form action='productos.php' method='POST'>
-            <input type='submit' name='vaciar' value='vaciar cesta' />
-        </form>
         <form action='logoff.php' method='POST'>
             <input type='submit' name='desconectar' value='Desconectar usuario <?php echo $_smarty_tpl->tpl_vars['nombre']->value;?>
 ' />

@@ -48,7 +48,7 @@ class Cesta {
 
     public function vaciar_cesta() {
         
-        $productos=[];      
+        $this->productos=[];      
     }
 
     function getProductos() {

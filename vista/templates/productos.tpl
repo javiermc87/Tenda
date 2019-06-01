@@ -15,24 +15,7 @@
                     {$listado}
       
        <hr />
-           
-{*MOSTRAMOS LA LISTA DE PRODUCTOS DE LA CESTA: *}
-       {if (isset($productos))}           
-            <h2>Lista de productos en la Cesta</h2>
-            
-            {foreach $productos as $producto=>$unidades}
-                <form action='productos.php' method='POST'>
-                    {$unidades['unidades']} unidades de:  {$producto}  a: {$unidades['productos']->getPVP()} €
-                    <input type='hidden' value='{$producto}' name='cod'>
-                    <input type='submit' name='quitar' value='quitar' />
-                </form>                   
-               <br />
-            {/foreach}
-        {/if}
-        <hr />
-        <form action='productos.php' method='POST'>
-            <input type='submit' name='vaciar' value='vaciar cesta' />
-        </form>
+           {include file='cesta.tpl'}
         <form action='logoff.php' method='POST'>
             <input type='submit' name='desconectar' value='Desconectar usuario {$nombre}' />
         </form>
