@@ -10,7 +10,7 @@
 
 <body>
     <div>
-        <!--BIENVENIDA AL USUARIO CONECTADo-->
+        <!--BIENVENIDA AL USUARIO CONECTADO-->
         <h1>Bienvenido a esta página {$nombre}</h1>
         <hr/>
         <div class="lista">

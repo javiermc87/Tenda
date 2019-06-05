@@ -14,7 +14,7 @@
         <form action='productos.php' method='POST'>
             <!--vamos imprimiento los productos con UNIDADES, CODIGO, PVP y PVP total:  -->
             <strong>  {$unidades['unidades']}</strong> unidades de: <strong>{$unidades['productos']->getnombrecorto()}</strong> precio unidad: <strong>{$unidades['productos']->getPVP() } €</strong> TOTAL: <strong>{$unidades['unidades']*$unidades['productos']->getPVP() }</strong>€ {$total=$total+($unidades['unidades']*$unidades['productos']->getPVP())}
-            <!--guardamos el codigo del producto-->
+            <!--guardamos el codigo del producto y añadimos un boton de quitar producto:-->
             <input type='hidden' value='{$producto}' name='cod'>
             <input type='submit' name='quitar' value='Quitar' />
             <br/>

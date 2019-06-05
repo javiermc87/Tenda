@@ -1,10 +1,6 @@
 <?php
+//Clase Cesta, contendra un array con todos los Productos y los metodos pertinentes:
 
-/**
- * Description of Cesta:        
- * Clase cesta: en esta clse guardaremos los Productos en un array. 
- * @author Ch3riF
- */
 class Cesta {
 
     //guardamos un array con todo lo necesario para trabajar con los productos:
@@ -14,7 +10,7 @@ class Cesta {
     public function __construct() {
         
     }
-
+ 
 // metodo publico que añade un producto al arraty
     public function add_producto($cod) {
         if (key_exists($cod, $this->productos)) {

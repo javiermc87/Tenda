@@ -1,5 +1,6 @@
 <?php
 //clase que contiene todo lo necesario para trabajar con el objeto producto:
+//coontiene el constructr con el codigo nombre nombre_corto y PvP. y los Geters
 
 class Producto {
 
