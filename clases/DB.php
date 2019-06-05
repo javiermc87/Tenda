@@ -1,16 +1,14 @@
 <?php
 
+//esta clase contiene todos los metodos necesarios para trabajar con nuestra base de datos:
+
 class DB {
 
-//atributo privado de conexión
+//variable que guarda la conexion (PDO) para con la base de datos 
     private static $conexion;
 
-    /* ======================conectar()======================================
-      conecta con la base de datos, usando PDO
-      da valor al atributo privado y estático $conexion de la clase
-      En caso de no conectarse aborta la app y muestra un mensaje
-     * ***************************************************************************************** */
-
+//metodo para conectarse a nuestra base de datos. 
+//se conecta y guarda esta conexion en la variable Private $conexion.
     private static function conectar() {
         try {
             $opc = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
@@ -25,15 +23,8 @@ class DB {
         self::$conexion = $conexion;
     }
 
-    /* ======================ejecutaConsulta ($sql,$valores)======================================
-      Accion: Ejecuta una consulta preparada con los valores de los parámetros de la consulta preparada
-      Parámetros: $sql es la consulta preparada y parametrizada
-      $valores es un array asociativo con los valores de los distintos
-      parámetros de la consulta anterior
-      Retorna =La consulta despues de ejecutarla, o null si no la ha podido ejecutaqr
-      en caso de no ejecutarla da un mensaje
-     * ********************************************************************************************** */
-
+//metodo para ejecutar consultas con la base de datos. 
+//este metodo llama al metodo privado conectar para establecer la conexion primero.( siempre y cuando la $conexion sea null.
     protected static function ejecutaConsulta($sql, $valores = null) {
         if (self::$conexion == null) {
             self::conectar();
@@ -49,14 +40,7 @@ class DB {
         return $consulta;
     }
 
-    /* ======================verificaCliente ($nombre,$pass)======================================
-      Accion: verifica si un nombre y pass son contenidos en la base de datos
-      Parámetros: $nombre es el nombre de usuario
-      $pass es la password para ese nombre
-      Retorna  true o false según se haya podido o no validar
-     * Recordar que la pass está cifrada con md5 en la base de datos      
-     * ********************************************************************************************** */
-
+//este metodo nos devuelve true o false el loguin es correcto o no.
     public static function verificaCliente($nombre, $pass) {
         $valores = array('usuario' => $nombre, 'password' => $pass);
         $sql = <<<FIN
@@ -108,5 +92,4 @@ FIN;
 
 }
 
-//End de la clase DB.php
 ?>

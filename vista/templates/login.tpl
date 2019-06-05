@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-{*Plantilla para login. Es invocada desde login.php. solo visualiza el $error del php*}
+<!--Plantilla para login. Es invocada desde login.php. solo visualiza el $error del php-->
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>Login Tienda Web con Plantillas</title>
-  <link href="tienda.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
     <div id='login'>
     <form action='login.php' method='post'>
     <fieldset >
         <legend>Login</legend>
-        {*si la variable error tiene algún valor se visualiza*}
+        <!--si la variable error tiene algún valor se visualiza-->
         <div><span class='error'>{$error}</span></div>
         <div class='campo'>
             <label for='usuario' >Usuario:</label><br/>

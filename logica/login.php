@@ -1,11 +1,11 @@
 <?php
 session_start();
-include 'c:\wamp64\www\tienda\clases\DB.php';
+include '..\clases\DB.php';
 require('Smarty.class.php');
-var_dump($_SESSION['nombre']);
+//var_dump($_SESSION['nombre']);
 $smarty = new Smarty;
-$smarty->template_dir = 'c:\wamp64\www\tienda\vista\templates';
-$smarty->compile_dir = 'c:\wamp64\www\tienda\vista\templates_c';
+$smarty->template_dir = '..\vista\templates';
+$smarty->compile_dir = '..\vista\templates_c';
 
 //asignamos los valores para personalizar plantilla, para sustituir las variables de la misma
 if (isset($_POST['enviar'])) {

@@ -1,14 +1,13 @@
 <?php
-
 session_start();
 require('Smarty.class.php');
-include 'c:\wamp64\www\tienda\clases\Producto.php';
-include 'c:\wamp64\www\tienda\clases\DB.php';
-include 'c:\wamp64\www\tienda\clases\Cesta.php';
+include '..\clases\Producto.php';
+include '..\clases\DB.php';
+include '..\clases\Cesta.php';
 
 $smarty = new Smarty;
-$smarty->template_dir = 'c:\wamp64\www\Tienda\vista\templates';
-$smarty->compile_dir = 'c:\wamp64\www\Tienda\vista\templates_c';
+$smarty->template_dir = '..\vista\templates';
+$smarty->compile_dir = '..\vista\templates_c';
 
 if (isset($_SESSION['nombre'])) {
 //pasamos el valor del nombre de usuario conectado a la vista
@@ -25,7 +24,7 @@ if (isset($_SESSION['nombre'])) {
 //damos formato y guardamos el codigo en un hidden. (un form para cada producto y boton.
         $listado .= "<form action='productos.php' method='POST'>"
                 . "<input type='submit' value='añadir' name='submit'>"
-                . " $nombre_corto | $precio <br>"
+                . " $nombre_corto | <strong> $precio € </strong><br>"
                 . "<input type='hidden' value='$codigo' name='cod'>"
                 . "</form>";
 //pasamos los valores con formato a Profuctos.tpl con la variable $listado.
@@ -45,23 +44,21 @@ if (isset($_POST['submit'])) {
     $productos = $cesta->getProductos();
     $cesta->guardar_cesta();
 }
-
-if(isset($_POST['quitar'])){
-    $cod=$_POST['cod'];
+//al dar a Quitar, quitamos ese producto del 
+if (isset($_POST['quitar'])) {
+    $cod = $_POST['cod'];
     $cesta->descuentaProducto($cod);
-    $productos=$cesta->getProductos();
-    $cesta->guardar_cesta();   
-}
-if(isset($_POST['Vaciar'])){
-    $cesta->vaciar_cesta(); 
+    $productos = $cesta->getProductos();
     $cesta->guardar_cesta();
-    unset($cesta);
-    var_dump($cesta);
 }
-
-
-
+//al dar a Vaciar:
+if (isset($_POST['Vaciar'])) {
+    $cesta->vaciar_cesta();
+    $cesta->guardar_cesta();
+    //destruimos la variable cesta
+    unset($cesta);
+}
+//pasamos la lista de productos 
 $smarty->assign("productos", $productos);
 $smarty->display('productos.tpl');
-var_dump($cesta);
 ?>
