@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include '..\clases\DB.php';
 require('Smarty.class.php');
@@ -13,7 +14,7 @@ if (isset($_POST['enviar'])) {
     $pass = $_POST['password'];
     if (DB::verificaCliente($nombre, $pass)) {
         //si es correcto guardamos el nombre en una variable de sesion
-        $_SESSION['nombre']=$nombre;
+        $_SESSION['nombre'] = $nombre;
         header('Location: http://localhost/tienda/logica/productos.php');
     } else {
         $smarty->assign('error', 'Introduce nombre y contraseña de nuevo');

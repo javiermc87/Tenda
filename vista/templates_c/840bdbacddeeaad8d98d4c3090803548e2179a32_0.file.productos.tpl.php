@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-05 21:38:29
+/* Smarty version 3.1.33, created on 2019-06-05 23:17:36
   from 'C:\wamp64\www\Tienda\vista\templates\productos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cf8365551cde3_02285376',
+  'unifunc' => 'content_5cf84d90cf4572_30414018',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '840bdbacddeeaad8d98d4c3090803548e2179a32' => 
     array (
       0 => 'C:\\wamp64\\www\\Tienda\\vista\\templates\\productos.tpl',
-      1 => 1559770702,
+      1 => 1559773841,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:cesta.tpl' => 1,
   ),
 ),false)) {
-function content_5cf8365551cde3_02285376 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cf84d90cf4572_30414018 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--Platilla para visualizar los productos, se invoca desde productos.php-->
 <html>
@@ -34,7 +34,7 @@ function content_5cf8365551cde3_02285376 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
     <div>
-        <!--BIENVENIDA AL USUARIO CONECTADo-->
+        <!--BIENVENIDA AL USUARIO CONECTADO-->
         <h1>Bienvenido a esta página <?php echo $_smarty_tpl->tpl_vars['nombre']->value;?>
 </h1>
         <hr/>
