@@ -1,7 +1,9 @@
 <?php
 
 session_start();
-include '..\clases\DB.php';
+const D = DIRECTORY_SEPARATOR;
+require_once  '..' . D . 'clases' . D . 'DB.php';
+
 require('Smarty.class.php');
 //var_dump($_SESSION['nombre']);
 $smarty = new Smarty;
