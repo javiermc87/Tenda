@@ -2,7 +2,7 @@
 
 session_start();
 const D = DIRECTORY_SEPARATOR;
-require_once  '..' . D . 'clases' . D . 'DB.php';
+require_once '..' . D . 'clases' . D . 'DB.php';
 
 require('Smarty.class.php');
 //var_dump($_SESSION['nombre']);
@@ -19,7 +19,7 @@ if (isset($_POST['enviar'])) {
         $_SESSION['nombre'] = $nombre;
         header('Location: http://localhost/tienda/logica/productos.php');
     } else {
-        $smarty->assign('error', 'Introduce nombre y contraseña de nuevo');
+        $smarty->assign('error', 'Nombre o contraseña incorrectos**');
     }
 }
 

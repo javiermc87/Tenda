@@ -1,20 +1,21 @@
 <?php
+
 session_start();
 require('Smarty.class.php');
 const D = DIRECTORY_SEPARATOR;
 
 require_once '..' . D . 'clases' . D . 'Producto.php';
-require_once  '..' . D . 'clases' . D . 'DB.php';
+require_once '..' . D . 'clases' . D . 'DB.php';
 require_once '..' . D . 'clases' . D . 'Cesta.php';
 
 $smarty = new Smarty;
 $smarty->template_dir = '..\vista\templates';
 $smarty->compile_dir = '..\vista\templates_c';
 
-$productos =null;
+$productos = null;
 
 if (!isset($_SESSION['nombre'])) {
-    header('Location=login.php?error=Debes identificarse');
+    header('Location: http://localhost/tienda/logica/login.php');
     exit();
 }
 //pasamos el valor del nombre de usuario conectado a la vista
@@ -30,10 +31,10 @@ foreach ($lista_productos as $objetoProducto) {
     $nombre_corto = $objetoProducto->getnombrecorto();
 //damos formato y guardamos el codigo en un hidden. (un form para cada producto y boton.
     $listado .= "<form action='productos.php' method='POST'>"
-        . "<input type='submit' value='añadir' name='submit'>"
-        . " $nombre_corto | <strong> $precio € </strong><br>"
-        . "<input type='hidden' value='$codigo' name='cod'>"
-        . "</form>";
+            . "<input type='submit' value='añadir' name='submit'>"
+            . " $nombre_corto | <strong> $precio € </strong><br>"
+            . "<input type='hidden' value='$codigo' name='cod'>"
+            . "</form>";
 //pasamos los valores con formato a Profuctos.tpl con la variable $listado.
     $smarty->assign("listado", $listado);
 }
@@ -57,7 +58,7 @@ if (isset($_POST['Vaciar'])) {
     //destruimos la variable cesta
 }
 
-$productos =$cesta->getProductos();
+$productos = $cesta->getProductos();
 
 $cesta->guardar_cesta();
 //pasamos la lista de productos
@@ -65,5 +66,4 @@ $cesta->guardar_cesta();
 
 $smarty->assign("productos", $productos);
 $smarty->display('productos.tpl');
-
 ?>

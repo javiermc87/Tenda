@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-06-11 20:51:58
+/* Smarty version 3.1.33, created on 2019-06-11 21:40:26
   from 'C:\wamp64\www\Tienda\vista\templates\cesta.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5d00146e4a6835_00795668',
+  'unifunc' => 'content_5d001fcaafdd99_98386622',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cbea6e211277d145e0317e2daf4e86115722debb' => 
     array (
       0 => 'C:\\wamp64\\www\\Tienda\\vista\\templates\\cesta.tpl',
-      1 => 1560286306,
+      1 => 1560289212,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5d00146e4a6835_00795668 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5d001fcaafdd99_98386622 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 
@@ -41,8 +41,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['producto']->value => $_smarty_tpl->tp
         <form action='productos.php' method='POST'>
             <!--vamos imprimiento los productos con UNIDADES, CODIGO, PVP y PVP total:  -->
             <strong>  <?php echo $_smarty_tpl->tpl_vars['unidades']->value['unidades'];?>
-</strong> unidades de: <strong><?php echo $_smarty_tpl->tpl_vars['unidades']->value['productos']->getnombrecorto();?>
-</strong> precio unidad: <strong><?php echo $_smarty_tpl->tpl_vars['unidades']->value['productos']->getPVP();?>
+</strong> - <strong><?php echo $_smarty_tpl->tpl_vars['unidades']->value['productos']->getnombrecorto();?>
+</strong> - <strong><?php echo $_smarty_tpl->tpl_vars['unidades']->value['productos']->getPVP();?>
  €</strong> TOTAL: <strong><?php echo $_smarty_tpl->tpl_vars['unidades']->value['unidades']*$_smarty_tpl->tpl_vars['unidades']->value['productos']->getPVP();?>
 </strong>€ <?php $_smarty_tpl->_assignInScope('total', $_smarty_tpl->tpl_vars['total']->value+($_smarty_tpl->tpl_vars['unidades']->value['unidades']*$_smarty_tpl->tpl_vars['unidades']->value['productos']->getPVP()));?>
             <!--guardamos el codigo del producto y añadimos un boton de quitar producto:-->

@@ -1,4 +1,5 @@
 <?php
+
 //Clase Cesta, contendra un array con todos los Productos y los metodos pertinentes:
 
 class Cesta {
@@ -10,7 +11,7 @@ class Cesta {
     public function __construct() {
         
     }
- 
+
 // metodo publico que añade un producto al arraty
     public function add_producto($cod) {
         if (key_exists($cod, $this->productos)) {
